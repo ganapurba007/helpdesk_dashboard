@@ -18,7 +18,8 @@ class DepartmentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'department_name' => fake()->randomElement(['IT', 'Finance', 'HR', 'Sales', 'Marketing']),
+            'description' => fake()->sentence(),
         ];
     }
 }

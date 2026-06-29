@@ -18,7 +18,8 @@ class StatusFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->randomElement(['Open', 'Assigned', 'In Progress', 'Resolved', 'Closed']),
+            'color' => $this->faker->hexColor(),
         ];
     }
 }

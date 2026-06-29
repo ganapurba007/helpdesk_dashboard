@@ -18,7 +18,9 @@ class PriorityFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->randomElement(['Low', 'Medium', 'High']),
+            'color' => $this->faker->hexColor(),
+            'level' => $this->faker->randomElement([1, 2, 3]),
         ];
     }
 }

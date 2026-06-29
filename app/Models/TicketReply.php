@@ -3,20 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
 
-class Ticket_history extends Model
+class TicketReply extends Model
 {
-    /** @use HasFactory<\Database\Factories\TicketHistoryFactory> */
+    /** @use HasFactory<\Database\Factories\TicketReplyFactory> */
     use HasFactory;
     use SoftDeletes;
+
     protected $fillable = [
         'ticket_id',
         'user_id',
-        'old_status_id',
-        'new_status_id',
-        'note',
+        'message',
     ];
 
     // Relationships
@@ -28,15 +27,5 @@ class Ticket_history extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function oldStatus()
-    {
-        return $this->belongsTo(Status::class, 'old_status_id');
-    }
-
-    public function newStatus()
-    {
-        return $this->belongsTo(Status::class, 'new_status_id');
     }
 }

@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Ticket_history;
+use App\Models\TicketHistory;
+use App\Models\Ticket;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,11 @@ class TicketHistoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'ticket_id' => Ticket::inRandomOrder()->value('id'),
+            'user_id' => fake()->numberBetween(4, 14),
+            'old_status_id' => fake()->numberBetween(1, 5),
+            'new_status_id' => fake()->numberBetween(1, 5),
+            'note' => fake()->paragraph(),
         ];
     }
 }

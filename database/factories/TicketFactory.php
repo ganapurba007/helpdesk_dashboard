@@ -18,7 +18,14 @@ class TicketFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'ticket_number' => 'TCK' . fake()->unique()->randomNumber(),
+            'user_id' => fake()->numberBetween(4, 14),
+            'assigned_to' => fake()->numberBetween(1, 3),
+            'category_id' => fake()->numberBetween(1, 5),
+            'priority_id' => fake()->numberBetween(1, 4),
+            'status_id' => fake()->numberBetween(1, 5),
+            'subject' => fake()->sentence(),
+            'description' => fake()->paragraph(),
         ];
     }
 }

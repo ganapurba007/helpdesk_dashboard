@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Ticket_reply;
+use App\Models\TicketReply;
+use App\Models\Ticket;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,9 @@ class TicketReplyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'ticket_id' => Ticket::inRandomOrder()->value('id'),
+            'user_id' => fake()->numberBetween(4, 14),
+            'message' => fake()->paragraph(),
         ];
     }
 }

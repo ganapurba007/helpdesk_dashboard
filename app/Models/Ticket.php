@@ -64,6 +64,6 @@ class Ticket extends Model
 
     public function histories()
     {
-        return $this->hasMany(Ticket_history::class);
+        return $this->hasMany(TicketHistory::class);
     }
 }
