@@ -74,7 +74,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function replies()
     {
-        return $this->hasMany(Ticket_reply::class);
+        return $this->hasMany(TicketReply::class);
     }
 
     public function histories()

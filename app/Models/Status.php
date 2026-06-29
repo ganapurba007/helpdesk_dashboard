@@ -25,11 +25,11 @@ class Status extends Model
 
     public function oldStatusHistories()
     {
-        return $this->hasMany(Ticket_history::class, 'old_status_id');
+        return $this->hasMany(TicketHistory::class, 'old_status_id');
     }
 
     public function newStatusHistories()
     {
-        return $this->hasMany(Ticket_history::class, 'new_status_id');
+        return $this->hasMany(TicketHistory::class, 'new_status_id');
     }
 }
