@@ -18,4 +18,25 @@ class Ticket_history extends Model
         'new_status_id',
         'note',
     ];
+
+    // Relationships
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function oldStatus()
+    {
+        return $this->belongsTo(Status::class, 'old_status_id');
+    }
+
+    public function newStatus()
+    {
+        return $this->belongsTo(Status::class, 'new_status_id');
+    }
 }

@@ -30,4 +30,40 @@ class Ticket extends Model
         'resolved_at',
         'closed_at',
     ];
+
+    // Relationships
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function assignedTo()
+    {
+        return $this->belongsTo(User::class, 'assigned_to');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
+
+    public function priority()
+    {
+        return $this->belongsTo(Priority::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Ticket_reply::class);
+    }
+
+    public function histories()
+    {
+        return $this->hasMany(Ticket_history::class);
+    }
 }

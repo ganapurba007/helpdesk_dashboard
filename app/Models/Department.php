@@ -12,4 +12,10 @@ class Department extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['department_name', 'description'];
+
+    // Relationships
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

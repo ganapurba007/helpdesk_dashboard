@@ -16,4 +16,10 @@ class Category extends Model
         'name',
         'description',
     ];
+
+    // Relationships
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

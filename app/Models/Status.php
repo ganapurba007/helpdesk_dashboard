@@ -16,4 +16,20 @@ class Status extends Model
         'title',
         'color'
     ];
+
+    // Relationships
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function oldStatusHistories()
+    {
+        return $this->hasMany(Ticket_history::class, 'old_status_id');
+    }
+
+    public function newStatusHistories()
+    {
+        return $this->hasMany(Ticket_history::class, 'new_status_id');
+    }
 }

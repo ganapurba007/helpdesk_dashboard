@@ -17,4 +17,10 @@ class Priority extends Model
         'level',
         'color'
     ];
+
+    // Relationships
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

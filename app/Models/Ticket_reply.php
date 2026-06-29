@@ -17,4 +17,15 @@ class Ticket_reply extends Model
         'user_id',
         'message',
     ];
+
+    // Relationships
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
